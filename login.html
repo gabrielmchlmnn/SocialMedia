@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Blogriel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 2rem;
+            background-color: #001f3f;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 116, 217, 0.5);
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-form input {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #0074D9;
+            border-radius: 4px;
+        }
+        .login-form button {
+            margin-top: 1rem;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .register-link a {
+            color: #0074D9;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" id="loginForm">
+            <input type="text" id="username" placeholder="Nome de usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="register-link">
+            <p>Não tem uma conta? <a href="#" id="registerLink">Registre-se</a></p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        $(document).ready(() => {
+            $('#loginForm').on('submit', function(e) {
+                e.preventDefault();
+                const username = $('#username').val();
+                const password = $('#password').val();
+                if (login(username, password)) {
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Usuário ou senha incorretos.');
+                }
+            });
+
+            $('#registerLink').on('click', function(e) {
+                e.preventDefault();
+                const username = prompt('Escolha um nome de usuário:');
+                const password = prompt('Escolha uma senha:');
+                if (username && password) {
+                    if (createUser(username, password)) {
+                        alert('Usuário criado com sucesso! Faça login para continuar.');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogriel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Blogriel</h1>
+        <nav>
+            <button id="loginBtn">Entrar</button>
+            <button id="logoutBtn" style="display: none;">Sair</button>
+        </nav>
+    </header>
+    <main>
+        <section id="postForm" style="display: none;">
+            <textarea id="postContent" placeholder="O que você está pensando?"></textarea>
+            <button id="submitPost">Postar</button>
+        </section>
+        <section id="posts"></section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
